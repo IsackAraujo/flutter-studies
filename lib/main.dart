@@ -4,16 +4,20 @@ main (){
   runApp(new PerguntaApp());
 }
 
-class PerguntaApp extends StatelessWidget{
+class PerguntaAppState extends State<PerguntaApp> {
 
-  Widget build(BuildContext context){
-
-    var perguntaSelecionada = 0;
+      var perguntaSelecionada = 0;
     
     void responder(){
+      setState(() {
       perguntaSelecionada++;
+      });
       print(perguntaSelecionada);
     }
+
+      Widget build(BuildContext context){
+
+
 
     void Function() functionThatWillReturnAnotherFunction() {
       return () {
@@ -52,4 +56,13 @@ class PerguntaApp extends StatelessWidget{
       )
     );
   }
+
+}
+
+class PerguntaApp extends StatefulWidget {
+
+  PerguntaAppState createState() {
+    return PerguntaAppState(); 
+  }
+
 }
