@@ -4,26 +4,45 @@ main (){
   runApp(new PerguntaApp());
 }
 
+class Student{
+
+  String? name;
+  int? age;
+
+  Student({this.name, this.age});
+
+  printStudent(){
+    print("Printing a studend in the console!!! Name: ${this.name}, Age: ${this.age}");
+  }
+}
 class PerguntaAppState extends State<PerguntaApp> {
 
-      var perguntaSelecionada = 0;
+    var perguntaSelecionada = 0;
     
     void responder(){
       setState(() {
+        var aluno = new Student(
+          name: "Carl",
+          age: 14
+        );
+      if(perguntaSelecionada<2 && perguntaSelecionada!= 1){
       perguntaSelecionada++;
+      }else{
+        aluno.printStudent();
+        null;
+      }
       });
       print(perguntaSelecionada);
     }
 
       Widget build(BuildContext context){
 
-
-
     void Function() functionThatWillReturnAnotherFunction() {
       return () {
         print("Im Printing Something!");
       };
     }
+    
 
     final perguntas = [
       "Qual é o seu nome?",
@@ -50,6 +69,10 @@ class PerguntaAppState extends State<PerguntaApp> {
             ElevatedButton(
               onPressed: responder,
               child: Text("Resposta 3")
+            ),
+            ElevatedButton(
+              onPressed: responder,
+              child: Text("If nothing changed, create a Student and print in the console")
             )
           ],
         )
