@@ -47,6 +47,13 @@ class PerguntaAppState extends State<PerguntaApp> {
         print("Im Printing Something!");
       };
     }
+
+    void Function() printOnTap() {
+      return () {
+        print("Label was tapped");
+      };
+    }
+
     
     return MaterialApp(
       home: Scaffold(
@@ -81,9 +88,16 @@ class PerguntaAppState extends State<PerguntaApp> {
               child: Text("Resposta 2")
             ),
             ElevatedButton(
-              onPressed: responder,
-              child: Text("Resposta 3")
-            ),
+              onPressed: responder, child: Text("Resposta 3")),
+                TextField(
+                  decoration: InputDecoration(
+                      border: UnderlineInputBorder(),
+                      labelText: "Password",
+                      hintText: 'Enter your password',
+                      counterText: "Maximum of 30 characters."),
+                  autocorrect: true,
+                  onTap: printOnTap(),
+                )
           ],
         )
       )
