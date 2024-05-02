@@ -18,6 +18,11 @@ class Student{
 class PerguntaAppState extends State<PerguntaApp> {
 
     var perguntaSelecionada = 0;
+
+    final perguntas = [
+      "Qual é o seu nome?",
+      "Qual é o nome de seu Cachorro?"
+    ];
     
     void responder(){
       setState(() {
@@ -25,11 +30,11 @@ class PerguntaAppState extends State<PerguntaApp> {
           name: "Carl",
           age: 14
         );
-      if(perguntaSelecionada<2 && perguntaSelecionada!= 1){
-      perguntaSelecionada++;
+      if(perguntaSelecionada == perguntas.length-1){
+      aluno.printStudent();
+      perguntaSelecionada = 0;
       }else{
-        aluno.printStudent();
-        null;
+      perguntaSelecionada++;
       }
       });
       print(perguntaSelecionada);
@@ -43,21 +48,30 @@ class PerguntaAppState extends State<PerguntaApp> {
       };
     }
     
-
-    final perguntas = [
-      "Qual é o seu nome?",
-      "Qual é o nome de seu Cachorro?"
-       ];
-    
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.blue,
-          title: Text("Vamo lá Guerreiro"),
+          title: Center(
+            child: Text("Vamo lá Guerreiro")
+            ),
         ),
         body: Column(
           children: [
+            Divider(
+              height: 30,
+              ),
+            Center(
+              child: Text("In this example we have two questions, and when you click in some buttom, you change the question, and every time that you achieved the second question, you will come back to the first and create a instance of a class Student and print it on the console."),),
+            Divider(
+              height: 30,
+               color: Colors.blue,
+               ),
             Text(perguntas[perguntaSelecionada]),
+            Divider(
+              height: 30,
+               color: Colors.blue
+               ),
             ElevatedButton(
               onPressed: responder,
               child: Text("Resposta 1")
@@ -70,10 +84,6 @@ class PerguntaAppState extends State<PerguntaApp> {
               onPressed: responder,
               child: Text("Resposta 3")
             ),
-            ElevatedButton(
-              onPressed: responder,
-              child: Text("If nothing changed, create a Student and print in the console")
-            )
           ],
         )
       )
