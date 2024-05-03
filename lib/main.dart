@@ -1,4 +1,6 @@
+/*
 import 'package:flutter/material.dart';
+import 'package:teste/models/mysql.dart';
 
 main (){
   runApp(new PerguntaApp());
@@ -16,6 +18,11 @@ class Student{
   }
 }
 class PerguntaAppState extends State<PerguntaApp> {
+
+  var db = new MySql();
+
+  var email = '';
+
 
     var perguntaSelecionada = 0;
 
@@ -54,13 +61,28 @@ class PerguntaAppState extends State<PerguntaApp> {
       };
     }
 
+    void _getCustumer() {
+      print("You clicked and came here");
+      db.getConnection().then((conn) {
+        String sql = 'SELECT email FROM company.person;';
+        conn.query(sql).then((results) {
+          for(var row in results){
+            setState(() {
+              print("You Clicked and came to here");
+              email = row[1];
+            });
+          }
+        });
+      });
+    }
+
     
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.blue,
           title: Center(
-            child: Text("Vamo lá Guerreiro")
+            child: Text("MAIL: ${email}")
             ),
         ),
         body: Column(
@@ -97,7 +119,11 @@ class PerguntaAppState extends State<PerguntaApp> {
                       counterText: "Maximum of 30 characters."),
                   autocorrect: true,
                   onTap: printOnTap(),
-                )
+                ),
+            ElevatedButton(
+              onPressed: _getCustumer,
+               child: Icon(Icons.person)
+               ),
           ],
         )
       )
@@ -113,3 +139,4 @@ class PerguntaApp extends StatefulWidget {
   }
 
 }
+*/
