@@ -4,10 +4,10 @@ import 'package:mysql1/mysql1.dart';
   
   final settings = ConnectionSettings(
       host: 'localhost',
-      port: 3306, 
+      port: 3306,
       user: 'RUAN',
       password: '5134',
-      db: 'DUCK',
+      db: 'duck',
     );
 
     try {
