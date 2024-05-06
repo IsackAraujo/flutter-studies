@@ -36,7 +36,7 @@ class PerguntaAppState extends State<PerguntaApp> {
           name: "Carl",
           age: 14
         );
-        
+
       if(perguntaSelecionada == perguntas.length-1){
       aluno.printStudent();
       perguntaSelecionada = 0;
@@ -74,17 +74,19 @@ class PerguntaAppState extends State<PerguntaApp> {
             Divider(
               height: 30,
               ),
-            Center(
-              child: Text("In this example we have two questions, and when you click in some buttom, you change the question, and every time that you achieved the second question, you will come back to the first and create a instance of a class Student and print it on the console."),),
-            Divider(
-              height: 30,
-               color: Colors.blue,
-               ),
+
+            Container(
+              width: double.infinity,
+              margin: EdgeInsets.all(10),
+              child: Text(
+                "In this example we have two questions, and when you click in some buttom, you change the question, and every time that you achieved the second question, you will come back to the first and create a instance of a class Student and print it on the console.",
+                style: TextStyle(
+                   fontSize: 12
+                ),
+                textAlign: TextAlign.center,
+                ),
+            ),
             Questao(texto: perguntas[perguntaSelecionada]),
-            Divider(
-              height: 30,
-               color: Colors.blue
-               ),
             ElevatedButton(
               onPressed: responder,
               child: Text("Resposta 1")
