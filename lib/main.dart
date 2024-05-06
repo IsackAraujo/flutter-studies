@@ -1,6 +1,7 @@
-/*
+
 import 'package:flutter/material.dart';
 import 'package:teste/models/mysql.dart';
+import './questao.dart';
 
 main (){
   runApp(new PerguntaApp());
@@ -19,8 +20,6 @@ class Student{
 }
 class PerguntaAppState extends State<PerguntaApp> {
 
-  var db = new MySql();
-
   var email = '';
 
 
@@ -37,6 +36,7 @@ class PerguntaAppState extends State<PerguntaApp> {
           name: "Carl",
           age: 14
         );
+        
       if(perguntaSelecionada == perguntas.length-1){
       aluno.printStudent();
       perguntaSelecionada = 0;
@@ -60,23 +60,7 @@ class PerguntaAppState extends State<PerguntaApp> {
         print("Label was tapped");
       };
     }
-
-    void _getCustumer() {
-      print("You clicked and came here");
-      db.getConnection().then((conn) {
-        String sql = 'SELECT email FROM company.person;';
-        conn.query(sql).then((results) {
-          for(var row in results){
-            setState(() {
-              print("You Clicked and came to here");
-              email = row[1];
-            });
-          }
-        });
-      });
-    }
-
-    
+ 
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
@@ -96,7 +80,7 @@ class PerguntaAppState extends State<PerguntaApp> {
               height: 30,
                color: Colors.blue,
                ),
-            Text(perguntas[perguntaSelecionada]),
+            Questao(texto: perguntas[perguntaSelecionada]),
             Divider(
               height: 30,
                color: Colors.blue
@@ -121,7 +105,7 @@ class PerguntaAppState extends State<PerguntaApp> {
                   onTap: printOnTap(),
                 ),
             ElevatedButton(
-              onPressed: _getCustumer,
+              onPressed: printOnTap(),
                child: Icon(Icons.person)
                ),
           ],
@@ -139,4 +123,3 @@ class PerguntaApp extends StatefulWidget {
   }
 
 }
-*/
