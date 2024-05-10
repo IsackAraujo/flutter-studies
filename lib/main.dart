@@ -26,7 +26,7 @@ class PerguntaAppState extends State<PerguntaApp> {
 
   var perguntaSelecionada = 0;
 
-  final perguntas = ["Qual é o seue nome?", "Qual é o nome de seu Cachorro?"];
+  final perguntas = ["Qual é o seU nome?", "Qual é o nome de seu Cachorro?"];
 
   void responder() {
     setState(() {

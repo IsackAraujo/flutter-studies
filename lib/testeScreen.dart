@@ -15,7 +15,7 @@ class TestScreen extends StatelessWidget {
              children: [
             Container(
               padding: EdgeInsets.all(25),
-               child: Text("Olá Flutter!, vamos pra cima",
+               child: Text("Olá Flutter!",
                style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 24,
@@ -36,10 +36,25 @@ class TestScreen extends StatelessWidget {
           Column(
             children: [
               Padding(padding: EdgeInsets.all(25),
-              child: Text("Building Screen..."),
+              child: Text("Seja bem-vindo(a)",
+              style: TextStyle(
+                fontSize: 20,
+              ),),
               )
             ],
-          )
+          ),
+
+
+             Row(
+               children: [
+                 TextField(
+                   decoration: InputDecoration(
+                     labelText: 'Usuário'
+                   ),
+                 )
+               ],
+               ),
+
         ],
       ),
     ));
