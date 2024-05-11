@@ -2,12 +2,15 @@ import 'package:flutter/material.dart';
 
 // Class create to exercise the process of navigating in classes
 
+var a = 1;
+
 class TestScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         body: SafeArea(
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
             
@@ -27,33 +30,92 @@ class TestScreen extends StatelessWidget {
               padding: EdgeInsets.all(25),
               child: Icon(
               
-              Icons.back_hand
+              Icons.info
               
               )
-            )   
-          ]),
+            ),
+
+               
+          ]
+          
+          
+          ),
 
           Column(
             children: [
-              Padding(padding: EdgeInsets.all(25),
-              child: Text("Seja bem-vindo(a)",
-              style: TextStyle(
-                fontSize: 20,
-              ),),
-              )
+              Container(
+                child: Padding(padding: EdgeInsets.all(25),
+                child: Text("Seja bem-vindo(a)",
+                style: TextStyle(
+                  fontSize: 20,
+                ),),
+                ),
+              ),
+
+
+              Padding(
+                padding: EdgeInsets.all(25),
+                child: TextField(
+                  decoration: InputDecoration(
+                    hintText: 'Usuário',
+                  ),
+                ),
+                ),
+
+              Padding(
+                padding: EdgeInsets.all(25),
+                child: TextField(
+                  decoration: InputDecoration(
+                    
+                    hintText: 'Senha'
+                  ),
+
+                ),
+                ),
+
+              /// Estudando o motivo pelo o qual essa parcela de codigo abaixo 
+              /// está dando erro na aplicação...
+              ///
+
+              /*
+              Expanded(
+                child: TextField(
+                  obscureText: true,
+                  textAlign: TextAlign.left,
+                  decoration: InputDecoration(
+                    hintText: "Enter your user",
+                  ),
+                ),) */
+
+                SizedBox(
+            width: 20,
+            height: 50,
+          ),
+
+                Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+
+            children: [
+              ElevatedButton(
+                child: Text("Não tenho uma conta"),
+                onPressed: null,
+              ),
+              ElevatedButton(
+                child: Text("Entrar"),
+                onPressed: null,
+              ),
+            ],
+          )
             ],
           ),
 
+          SizedBox(
+            width: 20,
+            height: 50,
+          ),
 
-             Row(
-               children: [
-                 TextField(
-                   decoration: InputDecoration(
-                     labelText: 'Usuário'
-                   ),
-                 )
-               ],
-               ),
+          
+
 
         ],
       ),
