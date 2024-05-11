@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:teste/testeScreen.dart';
+import 'package:teste/loginPropotype.dart';
 import './questao.dart';
 
   void main() {

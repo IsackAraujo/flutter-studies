@@ -8,7 +8,9 @@ class TestScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: SafeArea(
+      
+      body: SafeArea(
+
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -34,11 +36,9 @@ class TestScreen extends StatelessWidget {
               
               )
             ),
-
                
           ]
-          
-          
+
           ),
 
           Column(
@@ -53,25 +53,25 @@ class TestScreen extends StatelessWidget {
               ),
 
 
-              Padding(
-                padding: EdgeInsets.all(25),
-                child: TextField(
-                  decoration: InputDecoration(
-                    hintText: 'Usuário',
+              Container(
+                margin: EdgeInsets.fromLTRB(40, 10, 40, 10),
+                  child: TextField(
+                    decoration: InputDecoration(
+                      hintText: 'Usuário',
+                    ),
                   ),
-                ),
-                ),
+              ),
 
-              Padding(
-                padding: EdgeInsets.all(25),
-                child: TextField(
-                  decoration: InputDecoration(
-                    
-                    hintText: 'Senha'
+              Container(
+                margin: EdgeInsets.fromLTRB(40, 10, 40, 40),
+                  child: TextField(
+                    decoration: InputDecoration(
+                      
+                      hintText: 'Senha'
+                    ),
+                
                   ),
-
-                ),
-                ),
+              ),
 
               /// Estudando o motivo pelo o qual essa parcela de codigo abaixo 
               /// está dando erro na aplicação...
@@ -87,10 +87,7 @@ class TestScreen extends StatelessWidget {
                   ),
                 ),) */
 
-                SizedBox(
-            width: 20,
-            height: 50,
-          ),
+                
 
                 Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
