@@ -12,11 +12,22 @@ void incrementInList(List listToIncrement){
 }
 
 class TestScreen extends StatefulWidget {
+
+  String? nome;
+
   @override
-  State<TestScreen> createState() => _TestScreenState();
+  TestScreen(this.nome);
+
+  @override
+  State<TestScreen> createState() => _TestScreenState(this.nome);
 }
 
 class _TestScreenState extends State<TestScreen> {
+
+  String? nome;
+
+  _TestScreenState(this.nome);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,14 +36,14 @@ class _TestScreenState extends State<TestScreen> {
 
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
+        children: [ 
           Row(
             
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
              children: [
             Container(
               padding: EdgeInsets.all(25),
-               child: Text("Olá Flutter!",
+               child: Text("Olá ${nome}!",
                style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 24,
@@ -57,7 +68,7 @@ class _TestScreenState extends State<TestScreen> {
             children: [
               Container(
                 child: Padding(padding: EdgeInsets.all(25),
-                child: Text("Seja bem-vindo(a)",
+                child: Text("Seja bem-vindo(a), ${nome}",
                 style: TextStyle(
                   fontSize: 20,
                 ),),
@@ -91,16 +102,25 @@ class _TestScreenState extends State<TestScreen> {
             children: [
               ElevatedButton(
                 child: Text("Não tenho uma conta"),
-                onPressed: null,
+                onPressed: () {
+                  Navigator.pop(context);
+                }
               ),
               ElevatedButton(
                 child: Text("Entrar"),
                 onPressed: (){
                   setState(() { // SetState need to be used in the variable that is being incremented
+                  nome;
                   incrementInList(incrementation); // Need to use this () before call the function
                   });
                 } 
               ),
+              ElevatedButton(
+                child: Text("Print"),
+                onPressed: (){
+                  print('Printing name: ${this.nome}');
+                } 
+              )
             ],
           )
             ],
@@ -109,7 +129,7 @@ class _TestScreenState extends State<TestScreen> {
           Container(
             padding: EdgeInsets.all(30),
             child: Text(
-              'Quantas vezes foi clicado em Entrar =>  ${incrementation.length}',
+              'Times that "Entrar" was pressed: ${incrementation.length}',
               style: TextStyle(
                 fontSize: 16,
               ),

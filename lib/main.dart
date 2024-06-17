@@ -3,11 +3,10 @@ import 'package:flutter/widgets.dart';
 import 'package:teste/loginPropotype.dart';
 import './questao.dart';
 
-  void main() {
+void main() {
   runApp(MaterialApp(
     home: PerguntaApp(),
   ));
-
 }
 
 class Student {
@@ -22,6 +21,8 @@ class Student {
 }
 
 class PerguntaAppState extends State<PerguntaApp> {
+
+  String? nome = "Joana";
   var email = '';
 
   var perguntaSelecionada = 0;
@@ -60,7 +61,7 @@ class PerguntaAppState extends State<PerguntaApp> {
         home: Scaffold(
             appBar: AppBar(
               backgroundColor: Colors.blue,
-              title: Center(child: Text("MAIL: $email")),
+              title: Center(child: Text("Exercise")),
             ),
             body: Column(
               children: [
@@ -105,7 +106,7 @@ class PerguntaAppState extends State<PerguntaApp> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => TestScreen()),
+                                builder: (context) => new TestScreen(nome)),
                           );
                         },
                         child: const Text(
