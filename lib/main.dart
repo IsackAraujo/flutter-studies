@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:teste/loginPropotype.dart';
+import 'package:teste/models/anotherScreen.dart';
 import './questao.dart';
 
 void main() {
@@ -109,10 +110,7 @@ class PerguntaAppState extends State<PerguntaApp> {
                                 builder: (context) => new TestScreen(nome)),
                           );
                         },
-                        child: const Text(
-                          "Another Screen",
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        )))
+                        child: BotaoAnother('Screen')))
               ],
             )));
   }
